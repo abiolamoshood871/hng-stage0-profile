@@ -7,21 +7,29 @@ app.use(cors());
 
 app.get("/me", async (req, res) => {
   try {
+    // Fetch a random cat fact
     const response = await axios.get("https://catfact.ninja/fact", { timeout: 5000 });
     const catFact = response.data.fact;
 
+    // Proper JSON structure required for HNG
     const data = {
-      email: "abiolamoshood871@gmail.com",
-      current_datetime: new Date().toISOString(),
-      github_url: "https://github.com/abiolamoshood871",
-      cat_fact: catFact
+      status: "success",
+      user: {
+        email: "abiolamoshood871@gmail.com",
+        name: "Abiola Banusola",
+        stack: "Node.js/Express"
+      },
+      timestamp: new Date().toISOString(),
+      fact: catFact
     };
 
+    // Ensure Content-Type is application/json
     res.setHeader("Content-Type", "application/json");
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({
-      error: "Failed to fetch cat fact"
+      status: "error",
+      message: "Failed to fetch cat fact. Please try again later."
     });
   }
 });
