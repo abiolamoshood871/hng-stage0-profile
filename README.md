@@ -22,18 +22,12 @@ Welcome to my HNG Stage 0 Profile API project! This is a simple RESTful API that
 
 ---
 
-## About
-
-This project is part of the **HNGi Stage 0** task. The API has one main endpoint `/me` that returns your profile information along with a dynamic cat fact fetched from a third-party API. It’s built with **Node.js**, **Express**, and uses **Axios** for HTTP requests.
-
----
-
 ## Features
 
 - Returns profile information: email, full name, and backend stack  
 - Returns current UTC timestamp in ISO 8601 format  
 - Returns a dynamic random cat fact fetched from [Cat Facts API](https://catfact.ninja/fact)  
-- Proper JSON response with `Content-Type: application/json`  
+- Proper JSON response with 
 - Graceful error handling if the Cat Facts API fails  
 
 ---
@@ -42,7 +36,7 @@ This project is part of the **HNGi Stage 0** task. The API has one main endpoint
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/abiolamoshood871/hng-stage0-profile.git
+
+
 
 
