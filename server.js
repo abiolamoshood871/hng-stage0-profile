@@ -7,11 +7,9 @@ app.use(cors());
 
 app.get("/me", async (req, res) => {
   try {
-    // Fetch a random cat fact
     const response = await axios.get("https://catfact.ninja/fact", { timeout: 5000 });
     const catFact = response.data.fact;
 
-    // Proper JSON structure required for HNG
     const data = {
       status: "success",
       user: {
@@ -23,7 +21,6 @@ app.get("/me", async (req, res) => {
       fact: catFact
     };
 
-    // Ensure Content-Type is application/json
     res.setHeader("Content-Type", "application/json");
     res.status(200).json(data);
   } catch (error) {
