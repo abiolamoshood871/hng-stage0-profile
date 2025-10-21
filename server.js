@@ -5,6 +5,7 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
+// GET /me endpoint
 app.get("/me", async (req, res) => {
   try {
     const response = await axios.get("https://catfact.ninja/fact", { timeout: 5000 });
@@ -26,11 +27,12 @@ app.get("/me", async (req, res) => {
   } catch (error) {
     res.status(500).json({
       status: "error",
-      message: "Failed to fetch cat fact. Please try again later."
+      message: "Failed to fetch cat fact"
     });
   }
 });
 
+// Default route
 app.get("/", (req, res) => {
   res.send("HNG Stage 0 - Profile API is running ✅");
 });
